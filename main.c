@@ -1,7 +1,7 @@
 #include<stdio.h>
+#include"aluno.c"
 
-int main(){
-    printf("testando a modificacao de arquivo");
-
-    return 0;
+int main(void){
+    printf("%d",soma(1,3));
+    return(0);
 }
