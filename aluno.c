@@ -14,10 +14,10 @@ typedef struct alunos
 void cria_aluno(Alunos *alunos, int quantidadealunos)
 {
 
+  
     quantidadealunos--;
-
     system("cls");
-
+       
        printf("Digite o nome do aluno: \n");
        scanf(" %[^\n]", alunos[quantidadealunos].nome);
        printf("Digite o documento do aluno: \n");
@@ -28,27 +28,71 @@ void cria_aluno(Alunos *alunos, int quantidadealunos)
     
 }
 
-void criatxt(Alunos *alunos, int quantidadealunos){
-    int i;
+void imprime_aluno(Alunos *alunos, int quantidadealunos)
+{
 
-    quantidadealunos--;
+   int i;
+
     
-    printf("Quantidade: %d", quantidadealunos);
+
+      for(i = 0; i < quantidadealunos; i++){
+
+       printf("\n\nDados do aluno (%d)\n", i+1);
+       printf("Nome do aluno: %s\n", alunos[i].nome);
+       printf("Documento do aluno: %d\n", alunos[i].documento);
+       printf("Matricula do aluno: %d\n", alunos[i].matricula);
+
+      }
+ 
+    
+    
+}
+
+void criatxt(Alunos *alunos, int quantidadealunos){
+
+    int i;
 
     FILE *arquivo;
 
-    arquivo = fopen("ArquivoAlunos.txt", "a");
+    arquivo = fopen("ArquivoAlunos.txt", "w");
 
     fprintf(arquivo, "%d\n", quantidadealunos);
 
     for(i = 0; i < quantidadealunos; i++){
 
-     fprintf(arquivo, "%s %d %d\n", alunos[i].nome, alunos[i].documento, alunos[i].matricula);
+     fprintf(arquivo, "%s\n %d %d\n", alunos[i].nome, alunos[i].documento, alunos[i].matricula);
+
     }
     
+    fclose(arquivo);
+}
+
+
+void lertxt(Alunos *alunos, int quantidadealunos)
+{
+
+    int inicializador;
+
+
+    FILE *ArquivoAlunos;
+
+    ArquivoAlunos = fopen("ArquivoAlunos.txt", "r");
+
+
+        fscanf(ArquivoAlunos, "%d", &quantidadealunos);
+        for (int i = 0; i < quantidadealunos; i++)
+        {
+            
+
+            fscanf(ArquivoAlunos, " %[^\n] %d %d ", alunos[i].nome, &alunos[i].documento, &alunos[i].matricula);
+
+            
+        }
     
 
-    fclose(arquivo);
+    fclose(ArquivoAlunos);
+
+    
 }
 
 
