@@ -11,84 +11,46 @@ typedef struct alunos
 
 } Alunos;
 
-Alunos *cria_aluno(FILE *e, int qtd_alunos)
+void cria_aluno(Alunos *alunos, int quantidadealunos)
 {
 
-    char linhas[100];
+    quantidadealunos--;
 
-    Alunos *aluno = (Alunos *)malloc(qtd_alunos * sizeof(Alunos));
-    if (aluno == NULL)
-    {
-        printf("memoria insuficiente para alocacao");
-        exit(1);
-    }
+    system("cls");
 
-    while (fgets(linhas, 100, e) != NULL)
-    {
-
-        sscanf(linhas, "%[^;]s", "%[^;]d", "%[^;]d", aluno->nome, &aluno->matricula, &aluno->documento);
-    }
-
-    return aluno;
+       printf("Digite o nome do aluno: \n");
+       scanf(" %[^\n]", alunos[quantidadealunos].nome);
+       printf("Digite o documento do aluno: \n");
+       scanf("%d", &alunos[quantidadealunos].documento);
+       printf("Digite a matricula do aluno: \n");
+       scanf("%d", &alunos[quantidadealunos].matricula);
+    
+    
 }
 
-void busca_matricula(Alunos *aluno, int tamanho, int valor)
-{
+void criatxt(Alunos *alunos, int quantidadealunos){
+    int i;
 
-    int inicio = 0;
-    int fim = tamanho - 1;
-    int meio, verifica = 0;
+    quantidadealunos--;
+    
+    printf("Quantidade: %d", quantidadealunos);
 
-    while (inicio <= fim)
-    {
+    FILE *arquivo;
 
-        meio = inicio + ((valor - aluno[inicio].matricula) * (fim - inicio)) / (aluno[fim].matricula - aluno[inicio].matricula);
-        if (aluno[meio].matricula == valor)
-        {
+    arquivo = fopen("ArquivoAlunos.txt", "a");
 
-            printf("\n(Informacoes do aluno buscado)\n\n");
-            printf("Nome do aluno: %s\n", aluno[meio].nome);
-            printf("Nome do aluno: %s\n", aluno[meio].documento);
-            printf("Nome do aluno: %s\n", aluno[meio].matricula);
-            verifica++;
-            
-        }
-        else if (aluno[meio].matricula < valor)
-        {
-            inicio = meio + 1;
-        }
-        else
-        {
-            fim = meio - 1;
-        }
+    fprintf(arquivo, "%d\n", quantidadealunos);
+
+    for(i = 0; i < quantidadealunos; i++){
+
+     fprintf(arquivo, "%s %d %d\n", alunos[i].nome, alunos[i].documento, alunos[i].matricula);
     }
+    
+    
 
-    if (verifica == 0)
-    {
-
-        printf("Aluno nao encontrao\n");
-    }
+    fclose(arquivo);
 }
 
-char *busca_nome(Alunos *aluno, int tamanho, char *nome)
-{
-    int inicio = 0;
-    int fim = tamanho - 1;
-    int meio;
-    while (inicio <= fim)
-    {
-        meio = inicio + ((strcmp(nome, aluno[inicio].nome)) * (fim - inicio)) / (strcmp(aluno[fim].nome, aluno[inicio].nome));
-        if (strcmp(aluno[meio].nome, nome) == 0)
-        {
-            return aluno[meio].nome;
-        }
-        else
-        {
-            inicio = meio + 1;
-        }
-    }
-    return "nome invalido";
-}
 
 void libera_aluno(Alunos *aluno)
 {

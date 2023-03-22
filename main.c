@@ -3,58 +3,62 @@
 
 int main()
 {
-    int Sair = 0;
+ 
 
   
     
     system("cls");
 
-
-  while (Sair != 2)
-  {
+    int Escolha, Escolha2 = 0, matricula, matricula_buscada, quantidadealunos = 1;
+    Alunos *Vetor_alunos = (Alunos*) malloc(1 * sizeof(Alunos));
     
-    FILE *arquivo_alunos;
 
-    int Escolha, matricula, matricula_buscada;
 
-    arquivo_alunos = fopen("entrada.txt", "rt");
+  while (Escolha2 != 3)
+  {
 
-    if (arquivo_alunos == NULL)
-    {
-        printf("\nNenhum aluno foi cadastrado ainda.\n\n");
-        
-    }else {
+    
 
-           
-    }
+    printf("\n\nMenu\n\nPara cadrastar um aluno digite (1)\nPara Buscar um aluno digite (2)\nPara sair digite (3)\nescolha: ");
+    scanf("%d", &Escolha2);
+    
+    
 
-    Alunos *novo_aluno = cria_aluno(arquivo_alunos, 5);
-    printf("Digite como deseja buscar o aluno?\n(Digite 1 para busca por nome)\n(Digite 2 para busca por matricula)\nEscolha: ");
+    if(Escolha2 == 1){
+
+    
+    cria_aluno(Vetor_alunos, quantidadealunos);
+    quantidadealunos++;
+    Vetor_alunos = realloc(Vetor_alunos, quantidadealunos * (sizeof(Alunos)));
+
+    }else if(Escolha2 == 2 ){
+
+    printf("\n\nDigite como deseja buscar o aluno?\n(Digite 1 para busca por nome)\n(Digite 2 para busca por matricula)\nEscolha: ");
     scanf("%d", &Escolha);
 
     if (Escolha == 1)
     {
+
+      
+
     }
 
     else if (Escolha == 2)
     {
 
-        printf("digite a matricula que deseja buscar: \n");
-        scanf("%d", &matricula);
-        busca_matricula(novo_aluno, 5, matricula);
+        
     }
     else
     {
-        printf("opcao invalida\n");
+        
     }
-     fclose(arquivo_alunos);
-
-
-     printf("Continuar busca de alunos?\nDigite 1 (Sim)\nDigite 2 (Nao)\nEscolha:");
-     scanf("%d", &Sair);
+     
+    }
 
 
   }
+
+  criatxt(Vetor_alunos, quantidadealunos);
   
     
    
