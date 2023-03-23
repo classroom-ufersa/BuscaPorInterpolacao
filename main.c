@@ -9,7 +9,7 @@ int main()
     
     system("cls");
 
-    int Escolha, Escolha2 = 0, matricula, matricula_buscada, quantidadealunos = 0;
+    int Escolha, Escolha2 = 0, matricula, quantidadealunos = 0, posicao_do_aluno;
 
     Alunos *Vetor_alunos = (Alunos*) malloc(1 * sizeof(Alunos));
 
@@ -26,7 +26,6 @@ int main()
     {
         
         fscanf(ArquivoAlunos, "%d", &quantidadealunos);
-       
         Vetor_alunos = realloc(Vetor_alunos, quantidadealunos * (sizeof(Alunos)));
         lertxt(Vetor_alunos, quantidadealunos);
          
@@ -70,6 +69,21 @@ int main()
     else if (Escolha == 2)
     {
 
+      printf("Digite o numero da matricula do aluno: \n");
+      scanf("%d", &matricula);
+      posicao_do_aluno = busca_por_matricula(Vetor_alunos, quantidadealunos, matricula);
+      if(posicao_do_aluno == -1){
+
+        printf("Aluno nao encontrado.\n");
+        
+      }else{
+
+        printf("\n\nDados do aluno Buscado\n", posicao_do_aluno+1);
+        printf("Nome do aluno: %s\n", Vetor_alunos[posicao_do_aluno].nome);
+        printf("Documento do aluno: %d\n", Vetor_alunos[posicao_do_aluno].documento);
+        printf("Matricula do aluno: %d\n", Vetor_alunos[posicao_do_aluno].matricula);
+
+      }
         
     }
      
@@ -81,6 +95,7 @@ int main()
 
 
   }
+
 
   criatxt(Vetor_alunos, quantidadealunos);
   

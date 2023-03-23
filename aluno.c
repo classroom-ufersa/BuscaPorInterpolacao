@@ -16,6 +16,7 @@ void cria_aluno(Alunos *alunos, int quantidadealunos)
 
   
     quantidadealunos--;
+    
     system("cls");
        
        printf("Digite o nome do aluno: \n");
@@ -24,6 +25,7 @@ void cria_aluno(Alunos *alunos, int quantidadealunos)
        scanf("%d", &alunos[quantidadealunos].documento);
        printf("Digite a matricula do aluno: \n");
        scanf("%d", &alunos[quantidadealunos].matricula);
+
     
     
 }
@@ -71,8 +73,6 @@ void criatxt(Alunos *alunos, int quantidadealunos){
 void lertxt(Alunos *alunos, int quantidadealunos)
 {
 
-    int inicializador;
-
 
     FILE *ArquivoAlunos;
 
@@ -93,6 +93,73 @@ void lertxt(Alunos *alunos, int quantidadealunos)
     fclose(ArquivoAlunos);
 
     
+}
+
+int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
+
+
+    int inicio = 0;
+    int fim = quantidadealunos - 1;
+    int meio;
+
+    while (inicio <= fim) 
+    {
+        printf("Problema\n");
+        
+        meio = inicio + (matricula - alunos[inicio].matricula) * (fim - inicio) / (alunos[fim].matricula - alunos[inicio].matricula);
+        
+        if(alunos[meio].matricula == matricula){
+
+            return meio;
+
+        }else if (alunos[meio].matricula < matricula){
+            inicio = meio + 1;
+
+        }else {
+
+            fim = meio - 1;
+
+        }
+    }
+    
+    printf("Problema\n");
+
+    return -1;
+
+}
+
+
+int busca_por_nome(Alunos *alunos, int quantidadealunos, char *nome){
+
+
+    int inicio = 0;
+    int fim = quantidadealunos - 1;
+    int meio;
+
+    while (inicio <= fim) 
+    {
+        printf("Problema\n");
+        
+        meio = inicio + (nome - alunos[inicio].matricula) * (fim - inicio) / (alunos[fim].matricula - alunos[inicio].matricula);
+        
+        if(alunos[meio].matricula == matricula){
+
+            return meio;
+
+        }else if (alunos[meio].matricula < matricula){
+            inicio = meio + 1;
+
+        }else {
+
+            fim = meio - 1;
+
+        }
+    }
+    
+    printf("Problema\n");
+
+    return -1;
+
 }
 
 
