@@ -1,12 +1,8 @@
 #include <stdio.h>
 #include "aluno.c"
 
-int main()
-{
- 
-
-  
-    
+int main(){
+   
     system("cls");
 
     int Escolha, Escolha2 = 0, matricula, quantidadealunos = 0, posicao_do_aluno;
@@ -22,61 +18,45 @@ int main()
     {
         printf("\n\nNenhum aluno cadrastaodo.\n");
     }
-    else
-    {
-        
+    else {    
         fscanf(ArquivoAlunos, "%d", &quantidadealunos);
         Vetor_alunos = realloc(Vetor_alunos, quantidadealunos * (sizeof(Alunos)));
-        lertxt(Vetor_alunos);
-         
+        lertxt(Vetor_alunos);       
     }
 
     fclose(ArquivoAlunos);
-    
-    
-
 
   while (Escolha2 != 4)
   {
-     printf("\n\nAlunos cadrastados: %d\n", quantidadealunos);
-    
-
+    printf("\n\nAlunos cadrastados: %d\n", quantidadealunos);
     printf("\n\nMenu\n\nPara cadrastar um aluno digite (1)\nPara Buscar um aluno digite (2)\nListar alunos digite (3)\nPara sair digite (4)\nescolha: ");
     scanf("%d", &Escolha2);
     
     
-
     if(Escolha2 == 1){
 
     quantidadealunos++;
     Vetor_alunos = realloc(Vetor_alunos, quantidadealunos * (sizeof(Alunos)));
-    cria_aluno(Vetor_alunos, quantidadealunos);
-    
-    
+    cria_aluno(Vetor_alunos, quantidadealunos);   
 
     }else if(Escolha2 == 2 ){
 
-    printf("\n\nDigite como deseja buscar o aluno?\n(Digite 1 para busca por nome)\n(Digite 2 para busca por matricula)\nEscolha: ");
-    scanf("%d", &Escolha);
+     printf("\n\nDigite como deseja buscar o aluno?\n(Digite 1 para busca por nome)\n(Digite 2 para busca por matricula)\nEscolha: ");
+     scanf("%d", &Escolha);
 
-    if (Escolha == 1)
-    {
+       if (Escolha == 1){
+   
+       }else if (Escolha == 2) {
 
-      
-
-    }
-
-    else if (Escolha == 2)
-    {
-
-      printf("Digite o numero da matricula do aluno: \n");
-      scanf("%d", &matricula);
-      posicao_do_aluno = busca_por_matricula(Vetor_alunos, quantidadealunos, matricula);
-      if(posicao_do_aluno == -1){
-
-        printf("Aluno nao encontrado.\n");
+        printf("Digite o numero da matricula do aluno: \n");
+        scanf("%d", &matricula);
+        posicao_do_aluno = busca_por_matricula(Vetor_alunos, quantidadealunos, matricula);
         
-      }else{
+        if(posicao_do_aluno == -1){
+
+           printf("Aluno nao encontrado.\n");
+        
+        }else{
 
         printf("\n\nDados do aluno Buscado\n");
 
@@ -84,9 +64,9 @@ int main()
         printf("Documento do aluno: %d\n", Vetor_alunos[posicao_do_aluno].documento);
         printf("Matricula do aluno: %d\n", Vetor_alunos[posicao_do_aluno].matricula);
 
-      }
+        }
         
-    }
+      }
      
     }else if(Escolha2 == 3){
 
@@ -97,14 +77,9 @@ int main()
 
   }
 
-
   criatxt(Vetor_alunos, quantidadealunos);
-  
-    
    
   libera_aluno(Vetor_alunos);
-    
-   
-   
+       
     return 0;
 }
