@@ -142,29 +142,23 @@ void libera_aluno(Alunos *aluno)
 
 void bubbleSort(Alunos *vetor, int tamanho){ 
     int i, j;
-    Alunos *aux =(Alunos*)malloc(sizeof(Alunos)); 
-    if(aux == NULL){
-    printf("erro!");
-    exit(1);
-    }
+    Alunos aux;
     for(i = 0; i<tamanho; i++){        
       for(j=0; j<tamanho-1; j++){ 
          if(vetor[j].matricula > vetor[j+1].matricula){ 
  //================================
-            strcpy(aux->nome,vetor[j].nome);
-            strcpy(aux->documento,vetor[j].documento);
-            aux->matricula  = vetor[j].matricula;
+            strcpy(aux.nome,vetor[j].nome);
+            aux.documento = vetor[j].documento;
+            aux.matricula  = vetor[j].matricula;
  //================================
             strcpy(vetor[j].nome,vetor[j+1].nome);
-            strcpy(vetor[j].documento,vetor[j+1].documento);
+            vetor[j].documento = vetor[j+1].documento;
             vetor[j].matricula = vetor[j+1].matricula;
  //================================
-            strcpy(vetor[j+1].nome,aux->nome);
-            strcpy(vetor[j+1].documento,aux->documento);
-            vetor[j+1].matricula = aux->matricula; 
+            strcpy(vetor[j+1].nome,aux.nome);
+            vetor[j+1].documento = aux.documento;
+            vetor[j+1].matricula = aux.matricula; 
          } 
-
-      }
-      free(aux);
-    }
+      }         
+    }  
 }

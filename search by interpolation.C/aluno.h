@@ -17,3 +17,5 @@ void criatxt(Alunos *alunos, int quantidadealunos);
 void imprime_aluno(Alunos *alunos, int quantidadealunos);
 
 int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula);
+
+void bubbleSort(alunos* vetor, int tamanho);
