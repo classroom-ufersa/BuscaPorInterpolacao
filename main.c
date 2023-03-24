@@ -20,14 +20,14 @@ int main()
 
     if (ArquivoAlunos == NULL)
     {
-        printf("Nenhum aluno cadrastaodo.\n");
+        printf("\n\nNenhum aluno cadrastaodo.\n");
     }
     else
     {
         
         fscanf(ArquivoAlunos, "%d", &quantidadealunos);
         Vetor_alunos = realloc(Vetor_alunos, quantidadealunos * (sizeof(Alunos)));
-        lertxt(Vetor_alunos, quantidadealunos);
+        lertxt(Vetor_alunos);
          
     }
 
@@ -78,7 +78,8 @@ int main()
         
       }else{
 
-        printf("\n\nDados do aluno Buscado\n", posicao_do_aluno+1);
+        printf("\n\nDados do aluno Buscado\n");
+
         printf("Nome do aluno: %s\n", Vetor_alunos[posicao_do_aluno].nome);
         printf("Documento do aluno: %d\n", Vetor_alunos[posicao_do_aluno].documento);
         printf("Matricula do aluno: %d\n", Vetor_alunos[posicao_do_aluno].matricula);

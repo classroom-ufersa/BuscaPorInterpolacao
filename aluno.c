@@ -70,9 +70,11 @@ void criatxt(Alunos *alunos, int quantidadealunos){
 }
 
 
-void lertxt(Alunos *alunos, int quantidadealunos)
+void lertxt(Alunos *alunos)
 {
 
+
+    int quantidadealunos;
 
     FILE *ArquivoAlunos;
 
@@ -102,17 +104,17 @@ int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
     int fim = quantidadealunos - 1;
     int meio;
 
-    while (inicio <= fim) 
+    while (inicio  <= fim && matricula >= alunos[inicio ].matricula && matricula <= alunos[fim].matricula) 
     {
-        printf("Problema\n");
         
-        meio = inicio + (matricula - alunos[inicio].matricula) * (fim - inicio) / (alunos[fim].matricula - alunos[inicio].matricula);
+        meio = inicio + ((matricula - alunos[inicio].matricula) * (fim - inicio)) / (alunos[fim].matricula - alunos[inicio].matricula);
         
         if(alunos[meio].matricula == matricula){
 
             return meio;
 
         }else if (alunos[meio].matricula < matricula){
+
             inicio = meio + 1;
 
         }else {
@@ -122,45 +124,13 @@ int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
         }
     }
     
-    printf("Problema\n");
-
-    return -1;
-
-}
-
-
-int busca_por_nome(Alunos *alunos, int quantidadealunos, char *nome){
-
-
-    int inicio = 0;
-    int fim = quantidadealunos - 1;
-    int meio;
-
-    while (inicio <= fim) 
-    {
-        printf("Problema\n");
-        
-        meio = inicio + (nome - alunos[inicio].matricula) * (fim - inicio) / (alunos[fim].matricula - alunos[inicio].matricula);
-        
-        if(alunos[meio].matricula == matricula){
-
-            return meio;
-
-        }else if (alunos[meio].matricula < matricula){
-            inicio = meio + 1;
-
-        }else {
-
-            fim = meio - 1;
-
-        }
-    }
     
-    printf("Problema\n");
 
     return -1;
 
 }
+
+
 
 
 void libera_aluno(Alunos *aluno)
