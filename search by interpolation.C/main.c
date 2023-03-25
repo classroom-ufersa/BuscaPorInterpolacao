@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "aluno.c"
+#include<time.h>
 
 int main(){
    
     system("cls");
-
+    double tempo;
     int Escolha_busca, opcao = 0, matricula, quantidadealunos = 0, posicao_do_aluno,recebe_busca;
     char nome[50];
 
@@ -47,7 +48,14 @@ int main(){
        if (Escolha_busca == 1){
         printf("digite o nome do aluno que deseja buscar: ");
         scanf(" %[^\n]s",nome);
+       
+       clock_t inicio = clock();
         recebe_busca=busca_por_nome(Vetor_alunos,quantidadealunos,nome);
+       clock_t fim = clock();
+
+       tempo = (double) (fim - inicio) / CLOCKS_PER_SEC;
+
+       printf("tempo : %lf\n",tempo);
         if(recebe_busca == -1){
 
            printf("Aluno nao encontrado.\n");
@@ -65,8 +73,17 @@ int main(){
 
         printf("Digite o numero da matricula do aluno: \n");
         scanf("%d", &matricula);
+        
+        clock_t inicio = clock();
+       
         posicao_do_aluno = busca_por_matricula(Vetor_alunos, quantidadealunos, matricula);
         
+        clock_t fim = clock();
+
+        tempo = (double) (fim - inicio) / CLOCKS_PER_SEC;
+
+        printf("tempo: %lf",tempo);
+
         if(posicao_do_aluno == -1){
 
            printf("Aluno nao encontrado.\n");
