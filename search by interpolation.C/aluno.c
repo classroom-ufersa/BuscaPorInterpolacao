@@ -83,6 +83,8 @@ void lertxt(Alunos *alunos){
 
 int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
 
+    bubbleSort(alunos,quantidadealunos);
+
     int inicio = 0;
     int fim = quantidadealunos - 1;
     int meio;
