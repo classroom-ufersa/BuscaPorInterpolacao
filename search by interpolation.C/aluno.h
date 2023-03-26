@@ -18,6 +18,6 @@ void imprime_aluno(Alunos *alunos, int quantidadealunos);
 
 int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula);
 
-void bubbleSort(Alunos *vetor, int tamanho);
+void merge(Alunos *Vetor_alunos, int ini, int meio, int fim);
 
-void bubbleSort(Alunos *vetor, int tamanho);
+void mergesort(Alunos *Vetor_alunos, int ini, int fim);

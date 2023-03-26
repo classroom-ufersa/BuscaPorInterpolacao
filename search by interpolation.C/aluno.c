@@ -14,9 +14,9 @@ void cria_aluno(Alunos *alunos, int quantidadealunos)
 {
 
   
-    quantidadealunos--;
     
-    //system("cls");
+    
+    system("cls");
        
        printf("Digite o nome do aluno: \n");
        scanf(" %[^\n]", alunos[quantidadealunos].nome);
@@ -86,7 +86,6 @@ void lertxt(Alunos *alunos){
 
 int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
 
-    bubbleSort(alunos,quantidadealunos);
 
     int inicio = 0;
     int fim = quantidadealunos - 1;
@@ -149,26 +148,43 @@ void libera_aluno(Alunos *aluno)
     free(aluno);
 }
 
-//ordenar alunos pela matricula ja que temos a funçao cadastrar alunos, para a busca ser eficiente o vetor tem que estar ordenado.
-void bubbleSort(Alunos *vetor, int tamanho){ 
-    int i, j;
-    Alunos aux;
-    for(i = 0; i<tamanho; i++){        
-      for(j=0; j<tamanho-1; j++){ 
-         if(vetor[j].matricula > vetor[j+1].matricula){ 
- 
-            strcpy(aux.nome,vetor[j].nome);
-            aux.documento = vetor[j].documento;
-            aux.matricula  = vetor[j].matricula;
- 
-            strcpy(vetor[j].nome,vetor[j+1].nome);
-            vetor[j].documento = vetor[j+1].documento;
-            vetor[j].matricula = vetor[j+1].matricula;
- 
-            strcpy(vetor[j+1].nome,aux.nome);
-            vetor[j+1].documento = aux.documento;
-            vetor[j+1].matricula = aux.matricula; 
-         } 
-      }         
-    }  
+
+void mergesort(Alunos *Vetor_alunos, int ini, int fim) {
+
+    if (ini < fim) {
+        int meio = (ini + fim) / 2;
+        mergesort(Vetor_alunos, ini, meio);
+        mergesort(Vetor_alunos, meio + 1, fim);
+        merge(Vetor_alunos, ini, meio, fim);
+    }
+
+}
+
+
+void merge(Alunos *Vetor_alunos, int ini, int meio, int fim) {
+
+    int i, j, k;
+
+    Alunos *aux = (Alunos*) malloc((fim - ini + 1) * sizeof(Alunos));
+
+    i = ini; j = meio + 1; k = 0;
+
+    while (i <= meio && j <= fim) 
+    {
+        if (Vetor_alunos[i].matricula < Vetor_alunos[j].matricula) {
+            aux[k++] = Vetor_alunos[i++];
+        } else {
+            aux[k++] = Vetor_alunos[j++];
+        }
+    }
+    while (i <= meio) {
+        aux[k++] = Vetor_alunos[i++];
+    }
+    while (j <= fim) {
+        aux[k++] = Vetor_alunos[j++];
+    }
+    for (i = ini, k = 0; i <= fim; i++, k++) {
+        Vetor_alunos[i] = aux[k];
+    }
+    free(aux);
 }
