@@ -1,0 +1,93 @@
+O primeiro arquivo é o arquivo de código principal. Ele contém as instruções que são executadas quando o programa é executado.
+Nesse arquivo, normalmente estão as funções que são chamadas para realizar tarefas específicas e controlar a lógica do programa. 
+Ele pode ser escrito em diferentes linguagens de programação, dependendo do que se deseja realizar.
+
+O segundo arquivo é o arquivo de biblioteca. Esse arquivo contém um conjunto de funções que são usadas no programa principal.
+As funções que estão nesse arquivo são geralmente genéricas e podem ser reutilizadas em diferentes programas.
+É por isso que é chamado de biblioteca, porque é um conjunto de recursos que podem ser acessados por diferentes programas.
+
+Por fim, o terceiro arquivo é o arquivo de cabeçalho. Esse arquivo contém informações sobre as funções e variáveis que estão no arquivo de biblioteca. 
+O arquivo de cabeçalho é incluído no arquivo principal, para que o compilador saiba como encontrar as funções e variáveis da biblioteca.
+É importante ressaltar que o arquivo de cabeçalho não contém o código das funções, apenas informações sobre elas.
+
+O processo de compilação e execução do programa é geralmente feito em duas etapas.
+Na primeira etapa, o compilador lê o arquivo principal e o arquivo de cabeçalho e verifica quais funções são necessárias e onde elas estão definidas.
+Na segunda etapa, o compilador combina o código do arquivo principal com o código das funções da biblioteca, criando um arquivo 
+executável que pode ser executado pelo computador.
+
+
+No arquivo principal main.c, normalmente encontramos as funções principais que controlam a lógica do programa.
+Essas funções são específicas para o programa em questão e não são reutilizáveis em outros programas.
+Essas funções podem incluir coleta de entrada de usuário, processamento de dados, cálculos, exibição de resultados e outras tarefas específicas
+do programa.
+
+No arquivo de biblioteca aluno.c, encontramos as funções que são genéricas e podem ser reutilizadas em diferentes programas.
+Essas funções são geralmente mais abstratas e não dependem de nenhum programa específico. Algumas funções comuns que podem estar na biblioteca
+incluem funções matemáticas, funções de manipulação de arquivos, funções de entrada e saída, entre outras.
+
+No arquivo de cabeçalho aluno.h, encontramos informações sobre as funções e variáveis definidas no arquivo de biblioteca.
+Essas informações são usadas pelo compilador para conectar o arquivo principal ao arquivo de biblioteca. As informações podem incluir
+o nome das funções, seus tipos de retorno e parâmetros, bem como quaisquer macros ou definições de constantes que a biblioteca possa usar.
+
+Como funciona o main.c?
+
+O main.c começa incluindo as bibliotecas necessárias, como stdio.h e o arquivo aluno.c, que contém as funções relacionadas aos alunos. 
+Em seguida, a função main() é definida.
+
+Dentro da função main(), são inicializados várias variáveis, incluindo Escolha, Escolha2, matricula, quantidadealunos e posicao_do_aluno.
+Em seguida, é alocado dinamicamente um vetor de alunos usando a função malloc(). O arquivo ArquivoAlunos.txt é aberto em modo leitura usando 
+a função fopen(). Se o arquivo não puder ser aberto, a mensagem "Nenhum aluno cadrastaodo." é exibida. Caso contrário, o número de 
+alunos armazenado no arquivo é lido e o vetor de alunos é realocado usando a função realloc() para ter tamanho quantidadealunos * sizeof(Alunos).
+Em seguida, a função lertxt() é chamada para ler os dados dos alunos do arquivo.
+
+Depois disso, um loop while é iniciado que continua até que a variável Escolha2 seja igual a 4. Dentro do loop, o número de alunos cadastrados
+é exibido na tela, e o menu é exibido para o usuário escolher as opções disponíveis. Se a opção 1 for escolhida, a função cria_aluno()
+é chamada para criar um novo aluno e adicioná-lo ao vetor de alunos. Se a opção 2 for escolhida, o usuário é solicitado a escolher como
+deseja buscar o aluno: por nome ou por matrícula. Se a opção de busca por matrícula for escolhida, o número de matrícula do aluno é solicitado
+e a função busca_por_matricula() é chamada para procurar o aluno no vetor. Se o aluno for encontrado, seus dados são impressos na tela.
+Se a opção 3 for escolhida, a função imprime_aluno() é chamada para imprimir os dados de todos os alunos cadastrados no vetor.
+
+Após o loop while, a função criatxt() é chamada para escrever os dados dos alunos no arquivo ArquivoAlunos.txt.
+Em seguida, a função libera_aluno() é chamada para liberar a memória alocada para o vetor de alunos.
+
+
+Como funciona o alunos.c?
+
+O código aluno.c é um arquivo que contém funções que lidam com informações de alunos, como a criação de um novo aluno, 
+impressão dos dados de um ou vários alunos, criação e leitura de um arquivo de texto com informações de alunos, busca por matrícula ou nome 
+de um aluno e liberação da memória alocada para um aluno.
+
+As funções são implementadas usando a struct Alunos, que contém as informações do aluno: nome, matrícula e documento.
+
+As funções são:
+
+cria_aluno(): recebe um ponteiro para um array de alunos e a quantidade de alunos já existentes e solicita ao usuário que 
+informe o nome, documento e matrícula do novo aluno. Essas informações são armazenadas no último elemento do array.
+
+imprime_aluno(): recebe um ponteiro para um array de alunos e a quantidade de alunos e imprime na tela os dados de todos os alunos.
+
+criatxt(): recebe um ponteiro para um array de alunos e a quantidade de alunos e cria um arquivo de texto com as informações de todos os alunos.
+
+lertxt(): recebe um ponteiro para um array de alunos e lê as informações de todos os alunos de um arquivo de texto.
+
+busca_por_matricula(): recebe um ponteiro para um array de alunos, a quantidade de alunos e uma matrícula. A função busca o aluno com a 
+matrícula informada e retorna o índice dele no array ou -1 se o aluno não for encontrado.
+
+libera_aluno(): libera a memória alocada para um aluno.
+
+O arquivo main.c inclui o arquivo aluno.c e usa as funções implementadas para manipular informações de alunos. 
+Ele pode solicitar ao usuário que escolha uma opção como criar um novo aluno, imprimir os dados dos alunos, buscar um aluno por matrícula, etc.
+e chamar a função correspondente para realizar a tarefa.
+
+E o alunos.h?
+
+O arquivo aluno.h é um arquivo de cabeçalho que contém declarações de funções e definições de tipos que são compartilhados entre diferentes 
+arquivos fonte em um programa em linguagem C. Nesse arquivo, são declaradas as funções que estão definidas no arquivo aluno.c.
+
+Ao utilizar o #include "aluno.h" em outros arquivos fonte, essas funções podem ser utilizadas sem precisar reescrevê-las em cada 
+arquivo fonte, o que aumenta a modularidade e a legibilidade do código. Além disso, se houver necessidade de modificar alguma função, basta 
+modificar apenas o arquivo aluno.c, sem precisar modificar os demais arquivos que utilizam essas funções.
+
+As funções declaradas no aluno.h realizam operações relacionadas aos dados dos alunos, como criar, buscar, liberar e imprimir informações 
+sobre eles. Essas operações são importantes em diversos sistemas de gestão escolar, por exemplo, e podem ser reutilizadas em diferentes 
+projetos.

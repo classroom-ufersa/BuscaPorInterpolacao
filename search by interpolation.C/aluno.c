@@ -15,7 +15,7 @@ void cria_aluno(Alunos *alunos, int quantidadealunos)
 {
 
   
-    quantidadealunos--;
+    
     
     system("cls");
        
@@ -131,6 +131,37 @@ int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
 }
 
 
+void mergesort(Alunos *v, int ini, int fim) {
+    if (ini < fim) {
+        int meio = (ini + fim) / 2;
+        mergesort(v, ini, meio);
+        mergesort(v, meio + 1, fim);
+        merge(v, ini, meio, fim);
+    }
+}
+
+void merge(Alunos *v, int ini, int meio, int fim){
+    int i, j, k;
+    Alunos *aux = (Alunos*) malloc((fim - ini + 1) * sizeof(Alunos));
+    i = ini; j = meio + 1; k = 0;
+    while (i <= meio && j <= fim) {
+        if (v[i].matricula < v[j].matricula) {
+            aux[k++] = v[i++];
+        } else {
+            aux[k++] = v[j++];
+        }
+    }
+    while (i <= meio) {
+        aux[k++] = v[i++];
+    }
+    while (j <= fim) {
+        aux[k++] = v[j++];
+    }
+    for (i = ini, k = 0; i <= fim; i++, k++) {
+        v[i] = aux[k];
+    }
+    free(aux);
+}
 
 
 void libera_aluno(Alunos *aluno)

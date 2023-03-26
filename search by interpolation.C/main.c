@@ -4,9 +4,6 @@
 int main()
 {
  
-
-  
-    
     system("cls");
 
     int Escolha, Escolha2 = 0, matricula, quantidadealunos = 0, posicao_do_aluno;
@@ -50,9 +47,8 @@ int main()
 
     quantidadealunos++;
     Vetor_alunos = realloc(Vetor_alunos, quantidadealunos * (sizeof(Alunos)));
-    cria_aluno(Vetor_alunos, quantidadealunos);
-    
-    
+    cria_aluno(Vetor_alunos, quantidadealunos - 1);
+    mergesort(Vetor_alunos, 0, quantidadealunos - 1);
 
     }else if(Escolha2 == 2 ){
 
@@ -98,6 +94,7 @@ int main()
   }
 
 
+  
   criatxt(Vetor_alunos, quantidadealunos);
   
     
