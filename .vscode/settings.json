@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
         "Arquivo"
-    ]
+    ],
+    "files.associations": {
+        "time.h": "c"
+    }
 }

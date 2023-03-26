@@ -1,6 +1,4 @@
-7
-wallcy
- 23 21
+5
 Wallacy fernandes
  23 202013
 Lucas Mairon
@@ -10,6 +8,6 @@ tif
 Lidiana Costa
  23 202031
 Lucas
- 45 202047
-dex
- 23 202048
+ 45 202013
+aluno teste
+ 20 202019
