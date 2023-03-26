@@ -53,7 +53,7 @@ int main(){
         recebe_busca=busca_por_nome(Vetor_alunos,quantidadealunos,nome);
        clock_t fim = clock();
 
-       tempo = (double) (fim - inicio) / CLOCKS_PER_SEC;
+       tempo = (double) (fim - inicio) / (CLOCKS_PER_SEC/1000);
 
        printf("tempo : %lf\n",tempo);
         if(recebe_busca == -1){
@@ -80,7 +80,7 @@ int main(){
         
         clock_t fim = clock();
 
-        tempo = (double) (fim - inicio) / CLOCKS_PER_SEC;
+        tempo = (double) (fim - inicio) / (CLOCKS_PER_SEC/1000);
 
         printf("tempo: %lf",tempo);
 
