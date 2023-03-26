@@ -30,19 +30,19 @@ int main(){
 
   while (opcao != 4)
   {
-    printf("\n\nAlunos cadrastados: %d\n", quantidadealunos);
+    printf("\nAlunos cadrastados: %d\n", quantidadealunos);
     printf("\nMenu\n\n(1)Para cadrastar um aluno\n(2)Para Buscar um aluno\n(3)Listar alunos\n(4)Para sair\nescolha: ");
     scanf("%d", &opcao);
-    
-    if(opcao == 1){
+    switch(opcao){
+    case 1:
 
     quantidadealunos++;
     Vetor_alunos = realloc(Vetor_alunos, quantidadealunos * (sizeof(Alunos)));
     cria_aluno(Vetor_alunos, quantidadealunos);   
+    break;
+    case 2:
 
-    }else if(opcao == 2 ){
-
-     printf("\n\nDigite como deseja buscar o aluno?\n(Digite 1 para busca por nome)\n(Digite 2 para busca por matricula)\nEscolha: ");
+     printf("\n\nDigite como deseja buscar o aluno\n(1 para buscar por nome)\n(2 para buscar por matricula)\nEscolha: ");
      scanf("%d", &Escolha_busca);
 
        if (Escolha_busca == 1){
@@ -99,11 +99,11 @@ int main(){
         }
         
       }
-     
-    }else if(opcao == 3){
+    break;
+    case 3:
 
       imprime_aluno(Vetor_alunos, quantidadealunos);
-
+    break;
     }
 
   }
