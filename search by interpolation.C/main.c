@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "aluno.c"
+#include "aluno.h"
 #include<time.h>
 
 int main(){
