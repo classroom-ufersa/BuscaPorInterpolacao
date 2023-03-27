@@ -1,5 +1,5 @@
 class Aluno:
-    def __init__(self, nome, matricula, documento):
+    def __init__(self, nome, documento, matricula):
         self.nome = nome
-        self.matricula = matricula
         self.documento = documento
+        self.matricula = matricula
