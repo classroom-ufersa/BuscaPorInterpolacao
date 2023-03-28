@@ -87,32 +87,38 @@ void lertxt(Alunos *alunos){
 int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
 
 
-    int inicio = 0;
-    int fim = quantidadealunos - 1;
-    int meio;
+    int inicio = 0;//c1, 1 vez
+    int fim = quantidadealunos - 1;//c2, 1 vez
+    int meio;//c3, 1 vez
 
-    while (inicio  <= fim && matricula >= alunos[inicio ].matricula && matricula <= alunos[fim].matricula) {
+    while (inicio  <= fim && matricula >= alunos[inicio ].matricula && matricula <= alunos[fim].matricula){//c4, n vezes
         
-        meio = inicio + ((matricula - alunos[inicio].matricula) * (fim - inicio)) / (alunos[fim].matricula - alunos[inicio].matricula);
+        meio = inicio + ((matricula - alunos[inicio].matricula) * (fim - inicio)) / (alunos[fim].matricula - alunos[inicio].matricula);//c5, n vezes
         
-        if(alunos[meio].matricula == matricula){
+        if(alunos[meio].matricula == matricula){//c6, n vezes
 
-            return meio;
+            return meio;//c7,n vezes
 
-        }else if (alunos[meio].matricula < matricula){
+        }else if (alunos[meio].matricula < matricula){//c8, n vezes
 
-            inicio = meio + 1;
+            inicio = meio + 1;//c9, n vezes
 
-        }else {
+        }else {//c10, n vezes
 
-            fim = meio - 1;
+            fim = meio - 1;//c11, n vezes
 
         }
     }
 
-    return -1;
+    return -1;//c12, 1 vez
 
 }
+//T(n)=c1+c2+c3+n*(c4+c5+c6+c7+c8+c9+c10+c11)+c12
+//T(n)=c1+c2+c3+n*a+c12
+//T(n)=a*n
+//T(n)=n
+//notação Big-O:
+//O(n)
 
 int busca_por_nome(Alunos *alunos, int quantidadealunos, char *nome){
 
