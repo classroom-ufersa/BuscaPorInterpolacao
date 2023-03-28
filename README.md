@@ -13,7 +13,7 @@ Melhor| O(1)
 Médio | O(log2(log2(n)))
 Pior | O(n)
 
-### Complexidade de espaço 
+## Complexidade de espaço 
 
 A complexidade do espaço auxiliar é representada por O(1)
 
