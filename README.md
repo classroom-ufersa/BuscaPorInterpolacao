@@ -7,7 +7,7 @@ O algoritmo de busca por interpolação como o nome sugere, é um tipo de algori
  - Desvantagem:
  A desvantagem desse tipo de algoritmo é que quando o vetor está desordenado, dependendo de onde o elemento está no vetor, o metodo pode acabar invadindo espaço de memória, por acessar indices negativos.
 ## Complexidade
-casos | notação big(O)
+Casos | Notação Big(O)
 :---:| :---:
 Melhor| O(1)
 Médio | O(log2(log2(n)))
@@ -31,7 +31,7 @@ int busca_por_interpolacao(int *vetor, int tamanho, int valor){
         
         if(vetor[meio] == valor){//c6, n vezes
 
-            return meio;//c7,n vezes
+            return meio;//c7,1 vez
 
         }else if (vetor[meio] < valor){//c8, n vezes
 
@@ -47,8 +47,8 @@ int busca_por_interpolacao(int *vetor, int tamanho, int valor){
     return -1;//c12, 1 vez
 
 }
-//T(n)=c1+c2+c3+n*(c4+c5+c6+c7+c8+c9+c10+c11)+c12
-//T(n)=c1+c2+c3+n*a+c12
+//T(n)=c1+c2+c3+n*(c4+c5+c6+c8+c9+c10+c11)+c7+c12
+//T(n)=c1+c2+c3+n*a+c7+c12
 //T(n)=a*n
 //T(n)=n
 //notação Big-O:

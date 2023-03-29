@@ -97,7 +97,7 @@ int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
         
         if(alunos[meio].matricula == matricula){//c6, n vezes
 
-            return meio;//c7,n vezes
+            return meio;//c7,1  vez
 
         }else if (alunos[meio].matricula < matricula){//c8, n vezes
 
@@ -113,10 +113,10 @@ int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
     return -1;//c12, 1 vez
 
 }
-//T(n)=c1+c2+c3+n*(c4+c5+c6+c7+c8+c9+c10+c11)+c12
-//T(n)=c1+c2+c3+n*a+c12
+//T(n)=c1+c2+c3+n*(c4+c5+c6+c7+c8+c9+c10+c11)+c7+c12
+//T(n)=c1+c2+c3+n*a+c7+c12
 //T(n)=a*n
-//T(n)=n
+//T(n)=n    Tempo linear
 //notação Big-O:
 //O(n)
 
