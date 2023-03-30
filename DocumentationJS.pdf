@@ -1,0 +1,77 @@
+Documentação do arquivo HTML
+Introdução
+Este arquivo HTML é um modelo básico de página web que contém um formulário de cadastro de alunos e algumas opções de menu para busca, 
+impressão, salvamento e carregamento de listas de alunos. O arquivo também utiliza um arquivo CSS externo para aplicar estilos ao conteúdo da 
+página e um arquivo JavaScript para manipulação do formulário e das opções de menu.
+
+Estrutura do arquivo
+O arquivo é estruturado em elementos HTML, que são organizados hierarquicamente. O elemento html representa a raiz do documento, 
+seguido pelo head que contém informações de metadados e referências a arquivos externos. O body contém o conteúdo principal da página.
+
+Metadados
+O elemento head contém informações de metadados da página, como o título, a codificação de caracteres e a referência ao arquivo CSS
+ externo. Essas informações são importantes para a correta interpretação e exibição do conteúdo da página.
+
+Formulário
+O formulário de cadastro de alunos é representado pelo elemento form. Ele contém um conjunto de campos de entrada input para o nome,
+ documento e matrícula do aluno, e um botão button para submissão do formulário. Quando o botão é clicado, a função cadastrarAluno() 
+ é chamada para validar e processar os dados do formulário.
+
+Opções de menu
+As opções de menu são representadas por elementos nav e ul com classes específicas que controlam o comportamento responsivo do menu. 
+Cada opção de menu é representada por um ícone i que contém um texto p descritivo. Quando o ícone é clicado, o menu correspondente é 
+exibido ou ocultado.
+
+Arquivos externos
+O arquivo CSS externo aluno.css contém as regras de estilo que são aplicadas aos elementos HTML da página, como cores, fontes, margens 
+e espaçamentos. O arquivo JavaScript Alunos.js contém as funções que manipulam o formulário e as opções de menu da página.
+
+Biblioteca externa
+O arquivo https://kit.fontawesome.com/d63b95226d.js é uma biblioteca externa que fornece ícones adicionais que são usados ​​nos elementos 
+de menu da página. Essa biblioteca é referenciada por meio do elemento script e carregada a partir do site da Font Awesome.
+
+
+
+O arquivo JavaScript possui uma série de funções para cadastrar, buscar e manipular uma lista de alunos. 
+Além disso, também contém algumas funções para salvar e carregar a lista no localStorage e uma função para fechar a janela atual.
+
+O código também possui algumas variáveis que fazem referência a elementos do HTML, como botões e menus, e que são utilizadas 
+em algumas funções para adicionar ou remover classes desses elementos e alterar o seu comportamento.
+
+As funções específicas são:
+
+cadastrarAluno(): responsável por obter os dados do aluno a ser cadastrado a partir dos campos do formulário e adicioná-lo à lista de alunos.
+buscarAlunoMatricula(): recebe um número de matrícula e realiza uma busca binária na lista de alunos para encontrar o aluno 
+correspondente. Caso encontre, exibe uma mensagem com os dados do aluno. Caso contrário, exibe uma mensagem informando que o aluno não 
+foi encontrado.
+
+buscarAlunoNome(): semelhante à função anterior, mas realiza a busca pelo nome do aluno.
+
+imprimirLista(): percorre a lista de alunos e exibe uma mensagem com os dados de cada um.
+
+salvarLista(): converte a lista de alunos para JSON e salva no localStorage.
+
+carregarLista(): recupera a lista de alunos salva no localStorage e a converte de volta para um objeto JavaScript.
+
+
+
+
+O arquivo CSS está conectado a um arquivo HTML e JavaScript que implementa um menu responsivo. Ele inclui estilos para o menu de navegação, 
+o botão do menu responsivo, as listas de itens de menu, a aparência da página inicial e a aparência geral da página.
+
+O CSS importa uma fonte do Google Fonts para uso em todo o site, usando a regra @import. Em seguida, define uma configuração de estilo 
+padrão para todos os elementos HTML, incluindo uma margem e preenchimento de 0 e box-sizing definido como border-box. A imagem de fundo 
+é definida para a página inteira usando a propriedade background-image.
+
+A seção do cabeçalho usa display:flex e justify-content para alinhar o conteúdo à esquerda e à direita. A propriedade sticky é usada para 
+tornar o cabeçalho fixo na parte superior da página enquanto rola.
+
+Os botões do menu responsivo e seus respectivos textos são estilizados com uma fonte personalizada e propriedades de posicionamento 
+relativo para criar o efeito de "empilhamento" dos itens de menu quando o botão do menu responsivo é clicado. As classes .open-menu e 
+.open-menu2 controlam a exibição dos menus suspensos quando um item de menu é clicado.
+
+A lista de itens de menu é estilizada com uma posição absoluta, uma altura de 0 e um overflow oculto, para que não seja visível até que 
+o botão do menu responsivo seja clicado. Quando o botão é clicado, a altura da lista aumenta para exibir os itens de menu.
+
+O botão de inscrição é estilizado com um plano de fundo colorido e um estilo de sombra. Ele é posicionado no centro da página com a 
+propriedade position:absolute e uma transformação translate.

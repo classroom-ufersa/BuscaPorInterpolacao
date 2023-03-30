@@ -1,0 +1,53 @@
+Documentação do código em Python
+
+Descrição
+
+Este código permite ao usuário gerenciar uma lista de alunos fornecendo as seguintes funcionalidades:
+
+Adicionar um novo aluno à lista
+Procurar um aluno pelo número de matrícula
+Procurar um aluno pelo nome
+Imprimir a lista de alunos
+Salvar a lista de alunos em um arquivo
+Carregar uma lista de alunos de um arquivo
+O código faz uso de funções do módulo "alunos" para realizar essas operações.
+
+Requisitos
+Este código requer o módulo "alunos", que deve estar localizado no mesmo diretório que este código. 
+Este módulo contém a implementação da estrutura de dados usada para representar um aluno.
+
+Uso
+Para usar este código, execute-o em um ambiente Python. O usuário será solicitado com um menu de opções para selecionar.
+
+Para adicionar um novo aluno à lista, selecione a opção 1 e siga as instruções para fornecer as informações do aluno.
+Para procurar um aluno pelo número de matrícula, selecione a opção 2 e forneça o número de matrícula.
+Para procurar um aluno pelo nome, selecione a opção 3 e forneça o nome.
+Para imprimir a lista de alunos, selecione a opção 4.
+Para salvar a lista de alunos em um arquivo, selecione a opção 5.
+Para carregar uma lista de alunos de um arquivo, selecione a opção 6 e forneça o nome do arquivo.
+Observação: o número máximo de alunos que podem ser armazenados na lista é de 100.
+
+Funções
+O código faz uso das seguintes funções do módulo "alunos":
+
+cria_aluno(alunos, index): cria um novo aluno e o adiciona à lista de alunos.
+
+busca_por_matricula(alunos, quantidade_alunos, matricula): procura um aluno com o número de matrícula especificado na lista de alunos e retorna seu índice na lista.
+
+busca_nome(alunos, quantidade_alunos, nome): procura alunos com o nome especificado na lista de alunos e retorna seus índices na lista.
+
+imprime_aluno(alunos, quantidade_alunos): imprime a lista de alunos.
+
+criatxt(alunos, quantidade_alunos): salva a lista de alunos em um arquivo.
+
+lertxt(alunos): carrega uma lista de alunos de um arquivo.
+
+libera_aluno(alunos): libera a memória alocada para a lista de alunos.
+
+Variáveis
+
+alunos: uma lista de alunos
+
+quantidade_alunos: o número de alunos na lista
+
+escolha: a opção selecionada pelo usuário no menu.
