@@ -152,20 +152,7 @@ void libera_aluno(Alunos *aluno){
     free(aluno);
 }
 
-
-void mergesort(Alunos *Vetor_alunos, int ini, int fim) {
-
-    if (ini < fim) {
-        int meio = (ini + fim) / 2;
-        mergesort(Vetor_alunos, ini, meio);
-        mergesort(Vetor_alunos, meio + 1, fim);
-        merge(Vetor_alunos, ini, meio, fim);
-    }
-
-}
-
-
-void merge(Alunos *Vetor_alunos, int ini, int meio, int fim) {
+void merge(Alunos *Vetor_alunos, int ini, int meio, int fim){
 
     int i, j, k;
 
@@ -192,3 +179,16 @@ void merge(Alunos *Vetor_alunos, int ini, int meio, int fim) {
     }
     free(aux);
 }
+
+void mergesort(Alunos *Vetor_alunos, int ini, int fim) {
+
+    if (ini < fim) {
+        int meio = (ini + fim) / 2;
+        mergesort(Vetor_alunos, ini, meio);
+        mergesort(Vetor_alunos, meio + 1, fim);
+        merge(Vetor_alunos, ini, meio, fim);
+    }
+
+}
+
+

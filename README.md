@@ -7,7 +7,7 @@ O algoritmo de busca por interpolação como o nome sugere, é um tipo de algori
  - Desvantagem:
  A desvantagem desse tipo de algoritmo é que quando o vetor está desordenado, dependendo de onde o elemento está no vetor, o metodo pode acabar invadindo espaço de memória, que acaba acessando indices negativos,quando as entradas crescem exponencialmente a complexidade pode chegar a O(n),sendo o mesmo que uma busca sequencial.
 ## Complexidade
-Casos | Notação Big(O)
+Casos | Notação Big-O
 :---:| :---:
 Melhor| O(1)
 Médio | O(log2(log2(n)))
