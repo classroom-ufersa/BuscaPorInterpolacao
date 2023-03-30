@@ -9,7 +9,7 @@ typedef struct alunos{
     int documento;
 
 } Alunos;
-
+/*essa função recebe um vetor de alunos e uma quantidade como parametros e pede o nome o docuemnto e a matricula do aluno para guardar no vetor de estrutura */
 void cria_aluno(Alunos *alunos, int quantidadealunos)
 {
 
@@ -24,7 +24,7 @@ void cria_aluno(Alunos *alunos, int quantidadealunos)
        scanf("%d", &alunos[quantidadealunos].matricula);
 
 }
-
+/*recebe um ponteiro para um array de alunos e a quantidade de alunos e imprime na tela os dados de todos os alunos*/
 void imprime_aluno(Alunos *alunos, int quantidadealunos){
    int i;
 
@@ -41,7 +41,7 @@ void imprime_aluno(Alunos *alunos, int quantidadealunos){
             printf("\nainda nao tem alunos para listar");
     }
 }
-
+/*recebe um ponteiro para um array de alunos e a quantidade de alunos e cria um arquivo de texto com as informações de todos os alunos*/
 void criatxt(Alunos *alunos, int quantidadealunos){
 
     int i;
@@ -61,7 +61,7 @@ void criatxt(Alunos *alunos, int quantidadealunos){
     fclose(arquivo);
 }
 
-
+/*recebe um ponteiro para um array de alunos e lê as informações de todos os alunos de um arquivo de texto*/
 void lertxt(Alunos *alunos){
 
     int quantidadealunos;
@@ -81,7 +81,8 @@ void lertxt(Alunos *alunos){
     fclose(ArquivoAlunos);
     
 }
-
+/*recebe um ponteiro para um array de alunos, a quantidade de alunos e uma matrícula. A função busca o aluno com a 
+matrícula informada e retorna o índice dele no array ou -1 se o aluno não for encontrado*/
 int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
 
 
@@ -126,7 +127,7 @@ int busca_por_nome(Alunos *alunos, int quantidadealunos, char *nome){
 
     while (inicio  <= fim){
         
-        meio = inicio + (strcmp(nome, alunos[inicio].nome) * (fim - inicio)) / strcmp(alunos[fim].nome,alunos[inicio].nome);
+        meio = inicio + (strcmp(nome,alunos[inicio].nome) * (fim - inicio)) / strcmp(alunos[fim].nome,alunos[inicio].nome);
         
         if (strcmp(alunos[meio].nome,nome)==0){
 
@@ -146,9 +147,8 @@ int busca_por_nome(Alunos *alunos, int quantidadealunos, char *nome){
     return -1;
 
 }
-
-void libera_aluno(Alunos *aluno)
-{
+/*libera a memória alocada para um aluno*/
+void libera_aluno(Alunos *aluno){
     free(aluno);
 }
 
