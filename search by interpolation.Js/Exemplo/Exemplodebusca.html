@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Busca por Interpolação</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+    svg {
+      background-color: #f5f5f5;
+      height: 400px;
+      width: 800px;
+      margin: 0 auto;
+      display: block;
+    }
+    circle {
+      fill: steelblue;
+    }
+    text {
+
+      font-family: sans-serif;
+      font-size: 16px;
+      fill: rgb(2, 2, 2);
+      text-anchor: middle;
+      
+     
+
+    }
+  </style>
+</head>
+<body>
+  <svg></svg>
+  <p id="result"></p>
+  <script>
+
+    // dados
+    const data = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 21];
+    const target = 15;
+
+    // configuracoes do svg
+    const margin = {top: 50, right: 50, bottom: 50, left: 50};
+    const width = 800 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
+
+    // escala x
+    const xScale = d3.scaleLinear()
+      .domain([0, data.length - 1])
+      .range([0, width]);
+
+    // escala y
+    const yScale = d3.scaleLinear()
+      .domain([0, d3.max(data)])
+      .range([height, 0]);
+
+    // linha
+    const line = d3.line()
+      .x((d, i) => xScale(i))
+      .y(d => yScale(d));
+
+    // container do svg
+    const svg = d3.select('svg')
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height + margin.top + margin.bottom)
+      .append('g')
+      .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+    // plotagem da linha
+    const path = svg.append('path')
+      .datum(data)
+      .attr('fill', 'none')
+      .attr('stroke', 'steelblue')
+      .attr('stroke-width', 2)
+      .attr('d', line);
+
+    // plotagem dos circulos
+    const circles = svg.selectAll('circle')
+      .data(data)
+      .enter()
+      .append('circle')
+      .attr('cx', (d, i) => xScale(i))
+      .attr('cy', d => yScale(d))
+      .attr('r', 5);
+     
+    // eixo x
+   
+    // texto nos circulos
+    const text = svg.selectAll('text')
+      .data(data)
+      .enter()
+      .append('text')
+      .attr('x', (d, i) => xScale(i))
+      .attr('y', d => yScale(d) - 10)
+      .text(d => d);
+
+      const xAxis = d3.axisBottom(xScale);
+    svg.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(xAxis);
+
+    
+
+    // busca por interpolacao
+    let start = 0;
+    let end = data.length - 1;
+    let pos;
+
+    while (start <= end && target >= data[start] && target <= data[end]) {
+      pos = Math.round(start + ((target - data[start]) * (end - start)) / (data[end] - data[start]));
+
+      svg.append('circle')
+        .attr('cx', xScale(pos))
+        .attr('cy', yScale(data[pos]))
+    .attr('r', 10)
+    .attr('fill', 'red');
+    
+
+  // atualiza o valor de start e end baseado na busca binaria
+  if (data[pos] === target) {
+    document.getElementById('result').innerHTML = `Calculo: ${start} + ((${target} - ${data[start]})) * (${end} - ${start})) / (${data[end]} - ${data[start]})) <br> O valor ${target} foi encontrado na posição ${pos}.`;
+    break;
+  } else if (data[pos] < target) {
+    start = pos + 1;
+  } else {
+    end = pos - 1;
+  }
+}
+
+if (data[pos] !== target) {
+  document.getElementById('result').innerHTML = `O valor ${target} não foi encontrado no array.`;
+}
+
+</script>
+</body>
+</html>

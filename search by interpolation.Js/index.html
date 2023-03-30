@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Menu</title>
+  <link href="./aluno.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header id="header">
+
+    <nav>
+      <ul class="MenuResposive">
+        <form>
+          <div id = "menu">
+
+            <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome"><br>
+
+          <label for="nome">Documento</label>
+          <input type="text" id="documento" name="documento"><br>
+        
+          <label for="matricula">Matrícula</label>
+          <input type="text" id="matricula" name="matricula"><br>
+        
+          <button type="button" onclick="cadastrarAluno()">Cadastrar Aluno</button>
+
+          </div>
+          
+        </form>
+      </ul>
+
+      
+    </nav>
+
+    <div id="Cadastrar"><i class="fa-solid fa-address-card" id="MenuResposiveBtn"><p id="text1">Cadastrar Aluno</p></i></div>
+   
+    <nav>
+      <ul class="MenuResposive2">
+        <form>
+          <div id = "menu2">
+
+            <div>
+                        <label for="nome">Por Nome</label>
+                        <input type="text" id="pornome" name="pornome"><br>
+                        <button type="button" onclick="buscarAlunoNome()">Buscar Aluno</button>
+            </div>
+        
+          <div id="Div">
+            <label for="matricula">Por Matrícula</label>
+            <input type="text" id="pormatricula" name="pormatricula"><br>
+            <button type="button" onclick="buscarAlunoMatricula()">Buscar Aluno</button>
+          </div>
+
+          </div>
+          
+        </form>
+      </ul>
+
+      
+    </nav>
+
+    <div id="Cadastrar2"><i class="fa-solid fa-magnifying-glass" id="MenuResposiveBtn2"><p id="text2">Buscar Aluno</p></i></div>
+
+    <nav>
+      <ul class="MenuResposive3">
+        <form>
+          <div id = "menu3">
+
+
+          </div>
+          
+        </form>
+      </ul>
+
+      
+    </nav>
+
+    <div id="Cadastrar3"><i class="fa-solid fa-bars" id="MenuResposiveBtn3"><p id="text3">Imprimir Lista</p></i></div>
+    
+    <nav>
+      <ul class="MenuResposive4">
+        <form>
+          <div id = "menu4">
+
+
+          </div>
+          
+        </form>
+      </ul>
+
+      
+    </nav>
+
+    <div id="Cadastrar4"><i class="fa-solid fa-cloud-arrow-up" id="MenuResposiveBtn4"><p id="text4">Salvar Lista</p></i></div>
+    <i class=""></i>
+    <nav>
+      <ul class="MenuResposive5">
+        <form>
+          <div id = "menu5">
+
+
+          </div>
+          
+        </form>
+      </ul>
+
+      
+    </nav>
+
+    <div id="Cadastrar5"><i class="fa-solid fa-cloud-arrow-down" id="MenuResposiveBtn5"><p id="text5">Carregar Lista</p></i></div>
+    
+  </header>
+
+  
+ 
+  <script src="Alunos.js"></script>
+  <script
+  src="https://kit.fontawesome.com/d63b95226d.js"
+  crossorigin="anonymous"
+></script>
+</body>
+</html>

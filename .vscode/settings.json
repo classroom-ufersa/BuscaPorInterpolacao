@@ -1,6 +1,9 @@
 {
     "cSpell.words": [
-        "Arquivo"
+        "Arquivo",
+        "cadastrar",
+        "documento",
+        "matricula"
     ],
     "files.associations": {
         "time.h": "c"
