@@ -9,12 +9,10 @@ typedef struct alunos{
     int documento;
 
 } Alunos;
-
+/*essa função recebe um vetor de alunos e uma quantidade como parametros e pede o nome o docuemnto e a matricula do aluno para guardar no vetor de estrutura */
 void cria_aluno(Alunos *alunos, int quantidadealunos)
 {
 
-  
-    
     
     system("cls");
        
@@ -26,7 +24,7 @@ void cria_aluno(Alunos *alunos, int quantidadealunos)
        scanf("%d", &alunos[quantidadealunos].matricula);
 
 }
-
+/*recebe um ponteiro para um array de alunos e a quantidade de alunos e imprime na tela os dados de todos os alunos*/
 void imprime_aluno(Alunos *alunos, int quantidadealunos){
    int i;
 
@@ -43,7 +41,7 @@ void imprime_aluno(Alunos *alunos, int quantidadealunos){
             printf("\nainda nao tem alunos para listar");
     }
 }
-
+/*recebe um ponteiro para um array de alunos e a quantidade de alunos e cria um arquivo de texto com as informações de todos os alunos*/
 void criatxt(Alunos *alunos, int quantidadealunos){
 
     int i;
@@ -63,7 +61,7 @@ void criatxt(Alunos *alunos, int quantidadealunos){
     fclose(arquivo);
 }
 
-
+/*recebe um ponteiro para um array de alunos e lê as informações de todos os alunos de um arquivo de texto*/
 void lertxt(Alunos *alunos){
 
     int quantidadealunos;
@@ -83,36 +81,43 @@ void lertxt(Alunos *alunos){
     fclose(ArquivoAlunos);
     
 }
-
+/*recebe um ponteiro para um array de alunos, a quantidade de alunos e uma matrícula. A função busca o aluno com a 
+matrícula informada e retorna o índice dele no array ou -1 se o aluno não for encontrado*/
 int busca_por_matricula(Alunos *alunos, int quantidadealunos, int matricula){
 
 
-    int inicio = 0;
-    int fim = quantidadealunos - 1;
-    int meio;
+    int inicio = 0;//c1, 1 vez
+    int fim = quantidadealunos - 1;//c2, 1 vez
+    int meio;//c3, 1 vez
 
-    while (inicio  <= fim && matricula >= alunos[inicio ].matricula && matricula <= alunos[fim].matricula) {
+    while (inicio  <= fim && matricula >= alunos[inicio ].matricula && matricula <= alunos[fim].matricula){//c4, n vezes
         
-        meio = inicio + ((matricula - alunos[inicio].matricula) * (fim - inicio)) / (alunos[fim].matricula - alunos[inicio].matricula);
+        meio = inicio + ((matricula - alunos[inicio].matricula) * (fim - inicio)) / (alunos[fim].matricula - alunos[inicio].matricula);//c5, n vezes
         
-        if(alunos[meio].matricula == matricula){
+        if(alunos[meio].matricula == matricula){//c6, n vezes
 
-            return meio;
+            return meio;//c7,1  vez
 
-        }else if (alunos[meio].matricula < matricula){
+        }else if (alunos[meio].matricula < matricula){//c8, n vezes
 
-            inicio = meio + 1;
+            inicio = meio + 1;//c9, n vezes
 
-        }else {
+        }else {//c10, n vezes
 
-            fim = meio - 1;
+            fim = meio - 1;//c11, n vezes
 
         }
     }
 
-    return -1;
+    return -1;//c12, 1 vez
 
 }
+//T(n)=c1+c2+c3+n*(c4+c5+c6+c7+c8+c9+c10+c11)+c7+c12
+//T(n)=c1+c2+c3+n*a+c7+c12
+//T(n)=a*n
+//T(n)=n    Tempo linear
+//notação Big-O:
+//O(n)
 
 int busca_por_nome(Alunos *alunos, int quantidadealunos, char *nome){
 
@@ -122,7 +127,7 @@ int busca_por_nome(Alunos *alunos, int quantidadealunos, char *nome){
 
     while (inicio  <= fim){
         
-        meio = inicio + (strcmp(nome, alunos[inicio].nome) * (fim - inicio)) / strcmp(alunos[fim].nome,alunos[inicio].nome);
+        meio = inicio + (strcmp(nome,alunos[inicio].nome) * (fim - inicio)) / strcmp(alunos[fim].nome,alunos[inicio].nome);
         
         if (strcmp(alunos[meio].nome,nome)==0){
 
@@ -142,9 +147,8 @@ int busca_por_nome(Alunos *alunos, int quantidadealunos, char *nome){
     return -1;
 
 }
-
-void libera_aluno(Alunos *aluno)
-{
+/*libera a memória alocada para um aluno*/
+void libera_aluno(Alunos *aluno){
     free(aluno);
 }
 

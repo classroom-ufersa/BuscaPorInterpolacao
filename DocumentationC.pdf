@@ -34,7 +34,7 @@ Como funciona o main.c?
 O main.c começa incluindo as bibliotecas necessárias, como stdio.h e o arquivo aluno.c, que contém as funções relacionadas aos alunos. 
 Em seguida, a função main() é definida.
 
-Dentro da função main(), são inicializados várias variáveis, incluindo Escolha, Escolha2, matricula, quantidadealunos e posicao_do_aluno.
+Dentro da função main(), são inicializados várias variáveis, incluindo Escolha_busca, opcao, matricula, quantidadealunos, posicao_do_aluno,recebe_busca;.
 Em seguida, é alocado dinamicamente um vetor de alunos usando a função malloc(). O arquivo ArquivoAlunos.txt é aberto em modo leitura usando 
 a função fopen(). Se o arquivo não puder ser aberto, a mensagem "Nenhum aluno cadrastaodo." é exibida. Caso contrário, o número de 
 alunos armazenado no arquivo é lido e o vetor de alunos é realocado usando a função realloc() para ter tamanho quantidadealunos * sizeof(Alunos).
