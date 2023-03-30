@@ -13,8 +13,6 @@ typedef struct alunos{
 void cria_aluno(Alunos *alunos, int quantidadealunos)
 {
 
-  
-    
     
     system("cls");
        
