@@ -1,4 +1,6 @@
 # Busca por Interpolacao
+## Video explicando como nosso algoritmo em c funciona
+[explicação sobre busca por interpolação](https://www.youtube.com/watch?v=TDV7jLZBS28)
 ## O que é?
 O algoritmo de busca por interpolação como o nome sugere, é um tipo de algoritmo de busca que tem intuito de buscar determinado elemento de um vetor, funciona como um algoritmo de busca binária, a unica diferença entre os dois é o calculo feito para achar o elemento
 ## Vantagem e desvantagem
