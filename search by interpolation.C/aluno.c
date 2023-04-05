@@ -23,6 +23,7 @@ void cria_aluno(Alunos *alunos, int quantidadealunos)
        printf("Digite a matricula do aluno: \n");
        scanf("%d", &alunos[quantidadealunos].matricula);
 
+       minuscula(alunos, quantidadealunos);
 }
 /*recebe um ponteiro para um array de alunos e a quantidade de alunos e imprime na tela os dados de todos os alunos*/
 void imprime_aluno(Alunos *alunos, int quantidadealunos){
@@ -79,7 +80,7 @@ void lertxt(Alunos *alunos){
         }
     
     fclose(ArquivoAlunos);
-    
+    minuscula(alunos, quantidadealunos);
 }
 /*recebe um ponteiro para um array de alunos, a quantidade de alunos e uma matrícula. A função busca o aluno com a 
 matrícula informada e retorna o índice dele no array ou -1 se o aluno não for encontrado*/
@@ -191,4 +192,18 @@ void mergesort(Alunos *Vetor_alunos, int ini, int fim) {
 
 }
 
+void minuscula(Alunos* Vetor_alunos, int qtd_alunos){
 
+    int i,j;
+    char aux[50];
+
+    for( i=0; i < qtd_alunos; i++){
+        strcpy(aux,Vetor_alunos[i].nome);
+        j=0;
+        while(aux[j] != '\0'){
+            aux[j] = tolower(aux[j]);
+            j++;
+        }
+        strcpy(Vetor_alunos[i].nome,aux);
+    }
+}

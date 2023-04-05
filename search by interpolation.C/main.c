@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "aluno.h"
-#include<time.h>
+#include <time.h>
 
 int main(){
    
